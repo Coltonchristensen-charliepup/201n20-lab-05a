@@ -9,7 +9,7 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function sum(a, b) { //eslint-disable-line
-  var sum = a +b;
+  var sum = a + b;
   var str = `The sum of ${a} and ${b} is ${sum}.`;
 
   return [sum,str];
@@ -55,16 +55,16 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function sumAndMultiply(a, b, c) { //eslint-disable-line
-  var num1 = sum(a,b);
-  var num2 = sum(c,num1[0]);
+  var num1 = sum(a,b)[0];
+  var num2 = sum(c,num1)[0];
 
-  var product1 = multiply(a,b);
-  var product2 = multiply(c, product1[0]);
+  var product1 = multiply(a,b)[0];
+  var product2 = multiply(c, product1)[0];
 
-  var sumString = `${a} and ${b} and ${c} sum to ${num2[0]}.`;
-  var productString = `The product of ${a} and ${b} and ${c} is ${product2[0]}.`;
+  var sumString = `${a} and ${b} and ${c} sum to ${num2}.`;
+  var productString = `The product of ${a} and ${b} and ${c} is ${product2}.`;
 
-  return [num2[0], product2[0], sumString, productString];
+  return [num2, product2, sumString, productString];
 }
 
 // Here is the test for sumAndMultiply(); uncomment it to run it
@@ -84,14 +84,19 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 var testArray = [2, 3, 4]; //eslint-disable-line
-
+// a = sumArr[0], b = sumArr[1] c = sumArr[2]
 function sumArray(sumArr) { //eslint-disable-line
+  var num1 = sum(sumArr[0],sumArr[1])[0];
+  var num2 = sum(sumArr[2],num1)[0];
 
+  var str = `${sumArr[0]},${sumArr[1]},${sumArr[2]} was passed in as an array of numbers, and ${num2} is their sum.`;
+  //console.log([num2, str]);
+  return [num2, str];
 }
 
 // Here is the test for sumArray(); uncomment it to run it
 
-// testSumArray(testArray);
+ testSumArray(testArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
